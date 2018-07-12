@@ -1,0 +1,14 @@
+F:\RiderWP\ElectronicLicenceServer\ElectronicLicenceServer\bin\Debug\netcoreapp2.1\ElectronicLicenceServer.deps.json
+F:\RiderWP\ElectronicLicenceServer\ElectronicLicenceServer\bin\Debug\netcoreapp2.1\ElectronicLicenceServer.runtimeconfig.json
+F:\RiderWP\ElectronicLicenceServer\ElectronicLicenceServer\bin\Debug\netcoreapp2.1\ElectronicLicenceServer.runtimeconfig.dev.json
+F:\RiderWP\ElectronicLicenceServer\ElectronicLicenceServer\bin\Debug\netcoreapp2.1\ElectronicLicenceServer.dll
+F:\RiderWP\ElectronicLicenceServer\ElectronicLicenceServer\bin\Debug\netcoreapp2.1\ElectronicLicenceServer.pdb
+F:\RiderWP\ElectronicLicenceServer\ElectronicLicenceServer\obj\Debug\netcoreapp2.1\ElectronicLicenceServer.csprojAssemblyReference.cache
+F:\RiderWP\ElectronicLicenceServer\ElectronicLicenceServer\obj\Debug\netcoreapp2.1\ElectronicLicenceServer.csproj.CoreCompileInputs.cache
+F:\RiderWP\ElectronicLicenceServer\ElectronicLicenceServer\obj\Debug\netcoreapp2.1\ElectronicLicenceServer.RazorAssemblyInfo.cache
+F:\RiderWP\ElectronicLicenceServer\ElectronicLicenceServer\obj\Debug\netcoreapp2.1\ElectronicLicenceServer.RazorAssemblyInfo.cs
+F:\RiderWP\ElectronicLicenceServer\ElectronicLicenceServer\obj\Debug\netcoreapp2.1\ElectronicLicenceServer.AssemblyInfoInputs.cache
+F:\RiderWP\ElectronicLicenceServer\ElectronicLicenceServer\obj\Debug\netcoreapp2.1\ElectronicLicenceServer.AssemblyInfo.cs
+F:\RiderWP\ElectronicLicenceServer\ElectronicLicenceServer\obj\Debug\netcoreapp2.1\ElectronicLicenceServer.RazorTargetAssemblyInfo.cache
+F:\RiderWP\ElectronicLicenceServer\ElectronicLicenceServer\obj\Debug\netcoreapp2.1\ElectronicLicenceServer.dll
+F:\RiderWP\ElectronicLicenceServer\ElectronicLicenceServer\obj\Debug\netcoreapp2.1\ElectronicLicenceServer.pdb
