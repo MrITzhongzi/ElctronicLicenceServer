@@ -16,6 +16,7 @@ namespace ElectronicLicenceServer
     {
         public Startup(IConfiguration configuration)
         {
+            Console.WriteLine("111");
             Configuration = configuration;
         }
 
