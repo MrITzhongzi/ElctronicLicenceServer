@@ -2,13 +2,16 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ElectronicLicenceServer.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 
 namespace ElectronicLicenceServer
 {
@@ -16,7 +19,6 @@ namespace ElectronicLicenceServer
     {
         public Startup(IConfiguration configuration)
         {
-            Console.WriteLine("111");
             Configuration = configuration;
         }
 
@@ -31,8 +33,12 @@ namespace ElectronicLicenceServer
                 options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
-
-
+            services.AddDbContext<ElectronicLicContext>(
+                opt =>
+                {
+                    opt.UseNpgsql(Configuration.GetConnectionString("DefaultConnection"));
+                    opt.UseLoggerFactory(new LoggerFactory());
+                });
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
