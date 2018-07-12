@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ElectronicLicenceServer.Controllers;
 using ElectronicLicenceServer.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -39,6 +40,7 @@ namespace ElectronicLicenceServer
                     opt.UseNpgsql(Configuration.GetConnectionString("DefaultConnection"));
                     opt.UseLoggerFactory(new LoggerFactory());
                 });
+            services.AddTransient<Util>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
