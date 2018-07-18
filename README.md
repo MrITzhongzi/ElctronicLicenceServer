@@ -88,8 +88,89 @@
     |ok|删除成功|
     |Unauthorized|未登录|
 
+- 行驶证相关
 
-      
-        
+    - 查询行驶证列表 Get
+
+    ```Xsz/GetLicenseStatus```
+
+    返回数据格式：
+
+    ```
+    {
+        status = "ok", 
+        jsz = jsz,  // 驾驶证的相关信息
+        xsz = xsz // 行驶证的相关信息
+    }
+    ```
+    状态列表：
+
+    |状态|含义|
+    |-|-|
+    |ok|查询成功|
+    |Unauthorized|未登录|   
+
+    - 查询单个驾驶证 Get
+
+    ```Xsz/GetXsz```
+
+    需要参数：
+    ```
+    string cllx, 
+    string hphm
+    ```
+    请求示例：
+    ```
+    "/Xsz/GetXsz?hphm=" + carNum + "&cllx=" + carType
+    ```
+    状态列表：
+
+    |状态|含义|
+    |-|-|
+    |ok|查询成功|
+    |Unauthorized|未登录|  
+
+    - 删除行驶证 Get
+    
+    ```Xsz/DeleteXsz```
+
+    需要参数：
+    ```
+    string cllx,
+     string hphm
+    ```
+    请求示例：
+    ```
+    "/Xsz/DeleteXsz" + "?hphm=" +  carNum + "&cllx=" + carType
+    ```
+
+    返回数据格式：
+
+    ```
+    {
+        status = "ok",
+        xsz = xsz
+     }
+    ```
+
+    状态列表：
+
+    |状态|含义|
+    |-|-|
+    |ok|删除成功|
+    |Unauthorized|未登录|  
 
 
+### 数据库设计展示：
+
+1. 数据库结构
+![数据库结构](./ReadMeImg/1.png)
+
+2. Card表
+![Card表](./ReadMeImg/card.png)
+
+3. 驾驶证表（Jsz表）
+![Jsz表](./ReadMeImg/Jsz.png)
+
+4. 行驶证表
+![Xsz表](./ReadMeImg/Xsz.png)
