@@ -24,5 +24,22 @@ namespace ElectronicLicenceServer.Controllers
             var token = req.Headers["token"];
             return string.IsNullOrEmpty(token) ? null : await _db.User.FirstOrDefaultAsync();
         }
+
+        /// <summary>
+        /// 将 可空的bool；类型转换为 正常不可空的bool 类型
+        /// </summary>
+        /// <param name="accept"></param>
+        /// <returns></returns>
+        public bool TransformToBool(bool? accept)
+        {
+            bool tmp;
+            if (!accept.HasValue)
+            {
+                tmp = false;
+            }
+
+            tmp = (bool) accept;
+            return tmp;
+        }
     }
 }

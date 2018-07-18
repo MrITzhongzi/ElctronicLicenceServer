@@ -40,6 +40,7 @@ namespace ElectronicLicenceServer
                     opt.UseNpgsql(Configuration.GetConnectionString("DefaultConnection"));
                     opt.UseLoggerFactory(new LoggerFactory());
                 });
+            // 注入自定义的 util 服务
             services.AddTransient<Util>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }

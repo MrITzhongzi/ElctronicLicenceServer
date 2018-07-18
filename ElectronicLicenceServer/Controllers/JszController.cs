@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using ElectronicLicenceServer.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -13,7 +14,7 @@ namespace ElectronicLicenceServer.Controllers
         private readonly ILogger<AccountController> _log;
         private readonly Util _util;
 
-        public JszController(ElectronicLicContext db, ILogger<AccountController> log,Util util)
+        public JszController(ElectronicLicContext db, ILogger<AccountController> log, Util util)
         {
             _db = db;
             _log = log;
@@ -39,17 +40,17 @@ namespace ElectronicLicenceServer.Controllers
             }
 
             var jszInfo = await GetJsz(user.IdNum);
-            if (string.IsNullOrEmpty(jszInfo.IdNum))
+            if (jszInfo == null || string.IsNullOrEmpty(jszInfo.IdNum))
             {
                 return Ok(new
                 {
-                    status="NoLic"
+                    status = "NoLic"
                 });
             }
 
             user.Jsz = true;
             await _db.SaveChangesAsync();
-            
+
             return Ok(new
             {
                 status = "ok"
@@ -64,12 +65,46 @@ namespace ElectronicLicenceServer.Controllers
             {
                 return Ok(new {status = "Unauthorized"});
             }
-            var jsz = await _db.Jsz.FirstOrDefaultAsync(x => x.IdNum == user.IdNum);
+
+            var jsz = await _db.Jsz.FirstOrDefaultAsync(x => x.IdNum == user.IdNum && !_util.TransformToBool(x.Delete));
+            if (jsz == null)
+            {
+                return Ok(new
+                {
+                    status = "isDelete"
+                });
+            }
+            
             return Ok(new
             {
                 status = "ok",
                 info = jsz
             });
+        }
+
+        [HttpGet("DeleteJsz")]
+        public async Task<ActionResult> DeleteJsz()
+        {
+            var user = await _util.GetUserByRequest(Request);
+            if (user == null)
+            {
+                return Ok(new
+                {
+                    status = "Unauthorized"
+                });
+            }
+
+            user.Jsz = false;
+            var jsz = await _db.Jsz.FirstOrDefaultAsync(x => x.IdNum == user.IdNum);
+            if (jsz != null)
+            {
+//                _db.Jsz.Update(jsz);
+                jsz.Delete = true;
+            }
+
+            await _db.SaveChangesAsync();
+
+            return Ok(new {status = "ok"});
         }
     }
 }

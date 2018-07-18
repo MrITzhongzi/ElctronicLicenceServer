@@ -9,5 +9,6 @@ namespace ElectronicLicenceServer.Models
         public string IdNum { get; set; }
         public string Phone { get; set; }
         public string Address { get; set; }
+        public bool? Delete { get; set; }
     }
 }
