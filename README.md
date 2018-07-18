@@ -69,6 +69,26 @@
     |idNum| 身份证号|
     |phone|电话|
     |address|住址|
+
+    - 删除驾驶证 Get
+
+    ```Jsz/DeleteJsz```
+
+    返回数据格式：
+
+    ```
+    {
+        status: "ok"
+    }
+    ```
+    状态列表：
+
+    |状态|含义|
+    |-|-|
+    |ok|删除成功|
+    |Unauthorized|未登录|
+
+
       
         
 
