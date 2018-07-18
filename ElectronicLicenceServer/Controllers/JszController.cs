@@ -106,5 +106,6 @@ namespace ElectronicLicenceServer.Controllers
 
             return Ok(new {status = "ok"});
         }
+        
     }
 }

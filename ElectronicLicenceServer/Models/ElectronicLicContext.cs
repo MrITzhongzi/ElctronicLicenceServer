@@ -138,6 +138,8 @@ namespace ElectronicLicenceServer.Models
 
                 entity.Property(e => e.Dabh).HasColumnName("dabh");
 
+                entity.Property(e => e.Delete).HasColumnName("delete");
+
                 entity.Property(e => e.Fdjh).HasColumnName("fdjh");
 
                 entity.Property(e => e.Fzrq).HasColumnName("fzrq");

@@ -28,5 +28,6 @@ namespace ElectronicLicenceServer.Models
         public string Hphm { get; set; }
         public string Cllx { get; set; }
         public string IdNum { get; set; }
+        public bool? Delete { get; set; }
     }
 }
