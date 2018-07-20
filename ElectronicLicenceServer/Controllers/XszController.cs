@@ -41,8 +41,8 @@ namespace ElectronicLicenceServer.Controllers
         [HttpGet("test")]
         public async Task<ActionResult> Test()
         {
-            var aaa = await GetXsz("370523199403311011");
-            return aaa;
+//            var aaa = await GetXsz("370523199403311011");
+            return Ok(new{status="ok"});
         }
 
         [HttpGet("GetLicenseStatus")]
